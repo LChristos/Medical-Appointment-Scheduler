@@ -6,10 +6,10 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./app/assets:/data/db
+      - ./assets:/data/db
   flask-services:
     build:
-      context: ./app
+      context: .
     image: my-server:1.0.1
     container_name: hospital-container
     depends_on:
