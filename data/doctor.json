@@ -1,0 +1,25 @@
+[{
+    "_id": {
+      "$oid": "6693d25ad77c2daa712a0a53"
+    },
+    "name": "sadfs",
+    "surname": "dsfasf",
+    "email": "sdfad@dfas.com",
+    "username": "johndoe",
+    "password": "gAAAAABmk6HOL3B9eHGZ9xg3WdFNxDKdg58_CECnyTc3ZhDYd6SuyDYUJeJJmgurV2dyzDclc5sRQ_0cdO5-_iC5mqoiI0pRew==",
+    "price": "45",
+    "specialization": "Αλλεργιολόγος"
+  },
+  {
+    "_id": {
+      "$oid": "6693d25ad77c2daa712a0a53"
+    },
+    "name": "sadfs",
+    "surname": "dsfasf",
+    "email": "sdfad@dfas.com",
+    "username": "johndoe",
+    "password": "gAAAAABmk6HOL3B9eHGZ9xg3WdFNxDKdg58_CECnyTc3ZhDYd6SuyDYUJeJJmgurV2dyzDclc5sRQ_0cdO5-_iC5mqoiI0pRew==",
+    "price": "45",
+    "specialization": "Αλλεργιολόγος"
+  }
+]
