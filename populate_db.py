@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     # Populate the medical appointments
     try:
-        with open(os.path.join("assets", "appointment.json"), "r", encoding="utf-8") as appointment_file:
+        with open(os.path.join("data", "appointment.json"), "r", encoding="utf-8") as appointment_file:
             appointments = json.load(appointment_file)
         if appointments:
             result = db["appointment"].insert_many(appointments)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     #Populate the Patients
     try:
-        with open(os.path.join("assets", "patient.json"), "r", encoding="utf-8") as users_file:
+        with open(os.path.join("data", "patient.json"), "r", encoding="utf-8") as users_file:
             users = json.load(users_file)
         if users:
             result = db["patient"].insert_many(users)
@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     #Populate the Doctors
     try:
-        with open(os.path.join("assets", "doctor.json"), "r", encoding="utf-8") as doctor_file:
+        with open(os.path.join("data", "doctor.json"), "r", encoding="utf-8") as doctor_file:
             doctors = json.load(doctor_file)
         if doctors:
             result = db["doctor"].insert_many(doctors)
