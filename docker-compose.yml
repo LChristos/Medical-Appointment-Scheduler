@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./assets:/data/db
+      - ./data:/data/db
   flask-services:
     build:
       context: .
