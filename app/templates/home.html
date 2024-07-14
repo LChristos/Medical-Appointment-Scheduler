@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    {% if role == 'admin' %}
+        <ul>
+            <li><a href="{{ url_for('new_doctor') }}">Add Doctor</a></li>
+            <li><a href="{{ url_for('change_password_admin') }}">Change Doctor Password</a></li>
+            <li><a href="{{ url_for('delete_doctor') }}">Delete Doctor</a></li>
+            <li><a href="{{ url_for('delete_patient') }}">Delete Patient</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    {% elif role == 'doctor' %}
+        <ul>
+            <li><a href="{{ url_for('change_password') }}">Change Password</a></li>
+            <li><a href="{{ url_for('change_price') }}">Change Price per Appointment</a></li>
+            <li><a href="{{ url_for('show_doctor_appointments') }}">Show Future Appointments</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    {% elif role == 'patient' %}
+        <ul>
+            <li><a href="{{ url_for('new_appointment') }}">Add Appointment</a></li>
+            <li><a href="{{ url_for('show_appointments') }}">Show Future Appointments</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    {% endif %}
+</body>
+</html>

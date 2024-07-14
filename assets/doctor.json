@@ -1,0 +1,20 @@
+[{
+
+    "name": "sadfs",
+    "surname": "dsfasf",
+    "email": "sdfad@dfas.com",
+    "username": "johndoe",
+    "password": "gAAAAABmk6HOL3B9eHGZ9xg3WdFNxDKdg58_CECnyTc3ZhDYd6SuyDYUJeJJmgurV2dyzDclc5sRQ_0cdO5-_iC5mqoiI0pRew==",
+    "price": "45",
+    "specialization": "Αλλεργιολόγος"
+  },
+  {
+
+    "name": "Mitsos",
+    "surname": "m",
+    "email": "mitsaras.mitsou0987654321@gmail.com",
+    "username": "Gouras",
+    "password": "gAAAAABmk6HzH8xX6bV7lSnNSZUdV8HAfvYiGvR65k_3N0y8L6MsLU3ZPkv0OBzVjaTdJmIMkUmiilghOzYuIVjG7xnR6L3YjQ==",
+    "price": "34",
+    "specialization": "Καρδιολόγος"
+  }]

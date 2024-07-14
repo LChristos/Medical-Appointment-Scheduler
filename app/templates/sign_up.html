@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up User</title>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form method="post" action="{{ url_for('sign_up') }}">
+        <p>Name: <input type="text" name="name" required></p>
+        <p>Surname: <input type="text" name="surname" required></p>
+        <p>email: <input type="email" name="email" required></p>        
+        <p>AMKA: <input type="text" name="amka" required></p>
+        <p>Year of Birth: <input type="date" name="birth" required></p>
+        <p>Username: <input type="text" name="username" required></p>
+        <p>Password: <input type="text" name="password" required></p>
+        <p><input type="submit" value="Sign Up"></p>
+    </form>
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>

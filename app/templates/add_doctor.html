@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Doctor</title>
+</head>
+<body>
+    <h2>Add Doctor</h2>
+    <form method="post" action="{{ url_for('new_doctor') }}">
+        <p>Name: <input type="text" name="name" required></p>
+        <p>Surname: <input type="text" name="surname" required></p>
+        <p>email: <input type="email" name="email" required></p>
+        <p>Username: <input type="text" name="username" required></p>
+        <p>Password: <input type="text" name="password" required></p>
+        <p>Price per Appointment: <input type="number" name="price" required></p>
+        <p>Specialization:
+          <select name="specialization" required>
+              <option value="Ακτινολόγος">Ακτινολόγος</option>
+              <option value="Αιματολόγος">Αιματολόγος</option>
+              <option value="Αλλεργιολόγος">Αλλεργιολόγος</option>
+              <option value="Παθολόγος">Παθολόγος</option>
+              <option value="Καρδιολόγος">Καρδιολόγος</option>
+          </select>
+        </p>
+        <p><input type="submit" value="Add Doctor"></p>
+    </form>
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

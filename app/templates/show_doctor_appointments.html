@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show doctor future appointments</title>
+</head>
+<body>
+    <h3>Appointment List</h3>
+    <ul>
+        {% for appointment in appointments %}
+            <li>{{ appointment.ap_date }} {{ appointment.ap_hour }} with patient {{ appointment.patient_name }}  {{ appointment.patient_surname }} ,details {{ appointment.disc }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>

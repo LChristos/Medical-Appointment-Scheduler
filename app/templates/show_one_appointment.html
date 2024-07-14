@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Details</title>
+</head>
+<body>
+    <h3>Appointment Details</h3>
+    <p><strong>Date:</strong> {{ appointment.ap_date }}</p>
+    <p><strong>Time:</strong> {{ appointment.ap_hour }}</p>
+    <p><strong>Doctor Name:</strong> {{ appointment.doctor_name }}</p>
+    <p><strong>Doctor Surname:</strong> {{ appointment.doctor_surname }}</p>
+    <p><strong>Specialization:</strong> {{ appointment.specialization }}</p>
+    <p><strong>Price:</strong> {{ appointment.price }}</p>
+    <p><strong>Reason for Visit:</strong> {{ appointment.disc }}</p>
+    <p><a href="{{ url_for('show_appointments') }}">Back to Appointments</a></p>
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>
