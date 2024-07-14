@@ -197,7 +197,7 @@ def show_doctor_appointments():
     current_day = current_datetime.strftime('%Y-%m-%d')
     current_time = current_datetime.strftime('%H:%M')
 
-    appointments = list(appointment_collection.find({'doctor_username': username , 'ap_date': {'$gte': current_day} , 'ap_hour': {'$gt': current_time}}))
+    appointments = list(appointment_collection.find({'doctor_username': username , 'ap_date': {'$gte': current_day} }))
     for appointment in appointments:
         patient = patient_collection.find_one({'username':appointment['patient_username']})
         if patient:
@@ -263,7 +263,7 @@ def show_appointments():
     current_datetime = datetime.now()
     current_day = current_datetime.strftime('%Y-%m-%d')
     current_time = current_datetime.strftime('%H:%M')
-    appointments = list(appointment_collection.find({'patient_username': username , 'ap_date': {'$gt': current_day} , 'ap_hour': {'$gt': current_time}}))
+    appointments = list(appointment_collection.find({'patient_username': username , 'ap_date': {'$gt': current_day} }))
     for appointment in appointments:
         doctor = doctor_collection.find_one({'username':appointment['doctor_username']})
         if doctor:
