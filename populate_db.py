@@ -9,8 +9,8 @@ from app.utils.crypto_utils import encrypt_password
 
 if __name__ == "__main__":
     # Connection with db
-    client = pymongo.MongoClient("localhost", 27017)
-    db = client.HospitalDB
+    client = MongoClient('mongodb://mongodb:27017/')
+    db = client["HospitalDB"]
 
     # Populate the medical appointments
     try:
