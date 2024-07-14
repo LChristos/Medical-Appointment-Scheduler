@@ -8,7 +8,12 @@ import app.model
 from datetime import datetime, date, time
 from bson.objectid import ObjectId
 
-client = MongoClient('localhost', 27017)  # Adjust the host and port if necessary
+
+
+
+
+
+client = MongoClient('mongodb://mongodb:27017/')  # Adjust the host and port if necessary
 db = client["HospitalDB"]  # Database name
 appointment_collection = db["appointment"]
 doctor_collection = db["doctor"]
