@@ -1,4 +1,4 @@
-#  Medical Appointments
+#  Medical Appointments Scheduler
 
 ## Table of Contents
 
