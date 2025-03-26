@@ -7,7 +7,6 @@
 3. [Description of the Created Files](#description-of-the-created-files)
 4. [How to Run the System](#how-to-run-the-system)
 5. [How to Use the System](#how-to-use-the-system)
-6. [References Used](#references-used)
 
 ## Additional Assumptions Chosen
 
@@ -74,76 +73,76 @@ Contains the HTML templates for data display. According to _app/repository.py_:
 - (delete_appointment): The patient deletes an appointment.
 
 
-## Τρόπος Εκτέλεσης Συστήματος
+## How to Run the System
 
-1. **Κλωνοποίηση του Repository**:
+1. **Clone the Repository**:
 
    ```sh
    git clone https://github.com/LChristos/YpoxreotikiErgasia24_E21090_Liakos_Christos-Konstantinos.git
    cd YpoxreotikiErgasia24_E21090_Liakos_Christos-Konstantinos
 
-2. **Δημιουργία του image Mongodb για την βάση δεδομένων**:
+2. **Create the image of MongoDB for the database**:
     ```sh
     docker pull mongo:7.0.9
 
-3. **Δημιουργία του image Flask API Server**:
+3. **Creation of image Flask API Server**:
     ```sh
     docker build --tag my-server:1.0.1 .
 
-4. **Φτιάχνουμαι τα container για το flask και mongodb**:
+4. **Make the container for flask and mongodb**:
     ```sh
     docker compose up -d
 
-5. **Πρόσβαση στο σύστημα**:
+5. **Access to the system**:
     Πηγαίνουμε στη διεύθυνση http://localhost:5000
 
 
-## Τρόπος Χρήσης του Συστήματος
+## How to Use the System
 
-### ΩΣ Διαχειριστής
-1. Είσοδος στο Σύστημα με τα στοιχεία: Στο endpoint /login
+### As Admin
+1. Log in to the system using the following credentials at the endpoint /login
 
         Username: admin
         Password: @dm1n
 
-2. Του έχει τις επιλογές:
+2. Has the following options:
 
-    Δημιουργία Ιατρού(Add Doctor): Στο endpoint /admin/add_doctor
+    Add Doctor: Στο endpoint /admin/add_doctor
 
-    Αλλαγή Κωδικού Ιατρού(Change Doctor Password): Στο endpoint /admin/change_password
+    Change Doctor Password: Στο endpoint /admin/change_password
 
-    Διαγραφή Λογαριασμού Ιατρού: Στο endpoint /admin/delete_doctor
+    Delete Doctor Account: Στο endpoint /admin/delete_doctor
     
-    Διαγραφή Λογαριασμού Ασθενή: Στο endpoint /admin/delete_patient
+    Delete Patient Account: Στο endpoint /admin/delete_patient
 
-    Αποσύνδεση:
+    Logout:
 
-### ΩΣ Ιατρός
-1. Είσοδος στο Σύστημα με τα στοιχεία του Ιατρού: Στο endpoint /login
+### As Doctor
+1. Log in to the system using your doctor credentials at the endpoint /login.
 
-2. Του έχει τις επιλογές:
+2. Has the following options:
 
-    Αλλαγή κωδικού: Στο endpoint /doctor/change_password
+    Change Password: at the endpoint /doctor/change_password
 
-    Αλλαγή τιμής άνα ραντεβού: Στο endpoint /doctor/change_price
+    Change Appointment price: at the endpoint /doctor/change_price
 
-    Εμφάνιση μελλοντικών ραντεβού: Στο endpoint /doctor/show_appointments
+    View Upcoming Appointment: at the endpoint /doctor/show_appointments
 
-    Αποσύνδεση:
+    Logout:
 
-### ΩΣ Ασθενής
-1. Εγγραφή στο Σύστημα αν είναι η πρώτη φορά: Στο endpoint /sign_up
+### As Patient
+1.Register on the system (if it's the first time) at the endpoint /sign_up.
 
-2. Είσοδος στο Σύστημα με τα στοιχεία του Ιατρού: Στο endpoint /login
+2. Log in to the system using your credentials at the endpoint /login.
 
-3. Του έχει τις επιλογές:
+3. Has the following options:
 
-    Αναζήτηση & Κράτηση Ραντεβού: Στο endpoint /user/add_appointment
+    Search & Book Appointments: at the endpoint /user/add_appointment
 
-    Προβολή Μελλοντικών Ραντεβού: Στο endpoint /user/show_appointments
-    όπου μέσα στα ραντεβού μπορεί να:
+    View Upcoming Appointments: at the endpoint /user/show_appointments
+    where within the appointments you can:
 
-        Προβολή ενός Ραντεβού με λεπτομέρεια:  Στο endpoint /user/show_appointment/<appointment_id>
+        View Details of a Specific Appointment: at the endpoint /user/show_appointment/<appointment_id>
 
-        Ακύρωση Ραντεβού: Στο endpoint /user/delete_appointment
+        Cancel Appointment: at the endpoint /user/delete_appointment
     
