@@ -1,76 +1,77 @@
-# Υποχρεωτική Εργασία 2024 - Ιατρικά Ραντεβού
+# Mandatory Assignment 2024 - Medical Appointments
 
-## Περιεχόμενα
+## Table of Contents
 
-1. [Επιπλέον Παραδοχές που Επιλέξατε](#επιπλέον-παραδοχές-που-επιλέξατε)
-2. [Τεχνολογίες που Χρησιμοποιήθηκαν](#τεχνολογίες-που-χρησιμοποιήθηκαν)
-3. [Περιγραφή των Αρχείων που Κατασκευάσατε](#περιγραφή-των-αρχείων-που-κατασκευάσατε)
-4. [Τρόπος Εκτέλεσης Συστήματος](#τρόπος-εκτέλεσης-συστήματος)
-5. [Τρόπος Χρήσης του Συστήματος](#τρόπος-χρήσης-του-συστήματος)
-6. [Αναφορές που Χρησιμοποιήσατε](#αναφορές-που-χρησιμοποιήσατε)
+1. [Additional Assumptions Chosen](#additional-assumptions-chosen)
+2. [Technologies Used](#technologies-used)
+3. [Description of the Created Files](#description-of-the-created-files)
+4. [How to Run the System](#how-to-run-the-system)
+5. [How to Use the System](#how-to-use-the-system)
+6. [References Used](#references-used)
 
-## Επιπλέον Παραδοχές που Επιλέξατε
+## Additional Assumptions Chosen
 
-- Κάθε ιατρός μπορεί να έχει μόνο μία ειδικότητα.
-- Οι ασθενείς δεν μπορούν να κάνουν δύο ραντεβού για την ίδια ώρα.
+- Each doctor can have only one specialty.
+- Patients cannot book two appointments at the same time.
 
-## Τεχνολογίες που Χρησιμοποιήθηκαν
+## Technologies Used
 
 - Python 3.12
 - Flask
 - MongoDB
 - Docker
 - Docker Compose
-- HTML (για τα templates)
-- Jinja2 (για τα templates)
-- Fernet (για την κρυπτογράφηση των κωδικών)
+- HTML (for the templates)
+- Jinja2 (for the templates)
+- Fernet (for password encryption)
 
-## Περιγραφή των Αρχείων που Κατασκευάσατε
+## Description of the Created Files
 
-- **requirements.txt**: Περιέχει όλες τις βιβλιοθήκες που θα εγκαταστήσουμε για το έργο
-- **main.py**: Το κύριο αρχείο που τρέχουμε για τον Flask API server.
-- **docker-compose.yml**: Αρχείο για την εκκίνηση των containers για το API server και τη βάση δεδομένων MongoDB.
-- **Dockerfile**: Αρχείο για τη δημιουργία του Docker image του API server.
+- **requirements.txt**: Contains all the libraries to be installed for the project.
+- **main.py**: The main file that runs the Flask API server.
+- **docker-compose.yml**: File used to start the containers for both the API server and the MongoDB database.
+- **Dockerfile**: File used to create the Docker image for the API server.
 
-### Φάκελος `data`
+### Folder `data`
 
-Περιέχει τους πίνακες (collections) και τα δεδομένα της βάσης δεδομένων ,όπου αν δεν υπάρχει τον δημιουργεί
+Contains the tables (collections) and the database data. If the database does not exist, it will create it.
 
-### Φάκελος `app`
+### Folder `app`
 
-Περιέχει τον κώδικα της εφαρμογής:
+Contains the application code:
 
-- **app/\_\_init\_\_.py**: Αρχείο αρχικοποίησης της εφαρμογής 
-- **app/repository.py**: Περιέχει τις συναρτήσεις   για τη διαχείριση της βάσης δεδομένων και τα endpoints για τις διαδρομές  και τις μεθόδους του συστήματος
-- **app/model/appointment.py**: Ορισμός του μοντέλου για τα ραντεβού.
-- **app/model/doctor.py**: Ορισμός του μοντέλου για τους ιατρούς.
-- **app/model/patient.py**: Ορισμός του μοντέλου για τους ασθενείς.
-- **app/template**: Περιέχει τα HTML templates για την εμφάνιση των δεδομένων.
-- **app/utils/crypto_utils.py**: Περιέχει τις συναρτήσεις για την κρυπτογράφηση των κωδικών.
+- **app/\_\_init\_\_.py**: Application initialization file.
+- **app/repository.py**: Contains functions for managing the database and endpoints for the system's routes and methods.
+- **app/model/appointment.py**: Model definition for appointments.
+- **app/model/doctor.py**: Model definition for doctors.
+- **app/model/patient.py**: Model definition for patients.
+- **app/template**: Contains the HTML templates for data display.
+- **app/utils/crypto_utils.py**: Contains functions for password encryption.
 
-### Φάκελος `app/template`
+### Folder `app/template`
 
-Περιέχει τα HTML templates για την εμφάνιση των δεδομένων. Σύμφωνα και με το *app/repository.py*:
-- **home.html**(home): είναι η αρχική σελίδα και αν δεν έχει κάνει σύνδεση ο χρήστης τότε πάει στην login.html
-- **login.html**(login):είναι η σελίδα σύνδεσης για έναν διαχειριστή , γιατρό ή χρήστη , όπου ο χρήστη θα πρέπει να κάνει πρώτα εγγράφή στην sign_up.html
+Contains the HTML templates for data display. According to _app/repository.py_:
 
-**Αν γίνει σύνδεση ως Διαχειριστής**
-- **add_doctor.html**(new_doctor): ο admin μπορεί να προσθέσει έναν νέο γιατρό στο σύστημα
-- **delete_doctor.html**(delete_doctor): o admin μπορεί να διαγράψει έναν γιατρό με το username
-- **delete_patient.html**(delete_patient): ο admin μπορεί να διαγράψει έναν ασθενή με το username
-- **change_doctor_password.html**(change_password_admin): ο admin μπορεί να αλλάξει τον κωδικό ενός γιατρού
+- **home.html** (home): This is the landing page. If the user is not logged in, they are redirected to login.html.
+- **login.html** (login): The login page for an administrator, doctor, or user. The user must first sign up via sign_up.html.
 
-**Αν γίνει σύνδεση ως Ιατρός**
-- **change_password.html**(change_password): o γιατρός μπορεί να αλλάξει τον κωδικό του 
-- **change_price.html**(change_price): ο γιατρός μπορεί να αλλάξει την τιμή του 
-- **show_doctor_appointments.html**(show_doctor_appointments): ο γιατρός μπορεί να δει όλα τα μελλοντικά ραντεβού
+**When logged in as an Administrator:**
+- **add_doctor.html** (new_doctor): The admin can add a new doctor to the system.
+- **delete_doctor.html** (delete_doctor): The admin can delete a doctor by username.
+- **delete_patient.html** (delete_patient): The admin can delete a patient by username.
+- **change_doctor_password.html** (change_password_admin): The admin can change a doctor's password.
 
-**Αν γίνει σύνδεση ως ασθενής**
-- **sign_up.html**(sign_up): ο ασθενής κάνει την εγγραφή του
-- **add_appointment.html**(new_appointment): ο ασθενής προσπαθεί να κάνει κράτηση ραντεβού
-- **show_patient_appointments.html**(show_appointments): ο ασθενής εμφανίζει όλα τα μελλοντικά ραντεβού του
-- **show_one_appointment.html**(show_oneappointment): ο ασθενής εμφανίζει ένα συγκεκριμένο ραντεβού
-- (delete_appointment): ο ασθενής διαγράφει ένα ραντεβού
+**When logged in as a Doctor:**
+- **change_password.html** (change_password): The doctor can change their password.
+- **change_price.html** (change_price): The doctor can change the price per appointment.
+- **show_doctor_appointments.html** (show_doctor_appointments): The doctor can view all upcoming appointments.
+
+**When logged in as a Patient:**
+- **sign_up.html** (sign_up): The patient registers for the first time.
+- **add_appointment.html** (new_appointment): The patient attempts to book an appointment.
+- **show_patient_appointments.html** (show_appointments): The patient displays all their upcoming appointments.
+- **show_one_appointment.html**(show_oneappointment): The patient displays a specific appointment.
+- (delete_appointment): The patient deletes an appointment.
 
 
 ## Τρόπος Εκτέλεσης Συστήματος
