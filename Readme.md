@@ -1,4 +1,4 @@
-# Mandatory Assignment 2024 - Medical Appointments
+#  Medical Appointments
 
 ## Table of Contents
 
